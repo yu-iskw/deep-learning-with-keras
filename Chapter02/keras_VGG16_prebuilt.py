@@ -8,7 +8,7 @@ import numpy as np
 # pre-built and pre-trained deep learning VGG16 model
 base_model = VGG16(weights='imagenet', include_top=True)
 for i, layer in enumerate(base_model.layers):
-	print (i, layer.name, layer.output_shape)
+    print(i, layer.name, layer.output_shape)
 
 # extract features from block4_pool block
 model = Model(input=base_model.input, output=base_model.get_layer('block4_pool').output)
@@ -22,4 +22,4 @@ x = preprocess_input(x)
 # get the features from this block
 features = model.predict(x)
 
-print features
+print(features)
